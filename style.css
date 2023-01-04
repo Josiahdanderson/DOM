@@ -23,6 +23,12 @@
   flex: wrap
 }
 
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 20px 15px;
+}
+
 li {
   margin-right: 7px;
 }

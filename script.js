@@ -2,6 +2,13 @@ var button = document.getElementById("enter");
 var input = document.getElementById("userInput");
 var ul = document.querySelector("ul");
 var select = ul.getElementsByTagName("li");
+var test = document.getElementsByTagName("button")
+
+function deleteListElement(element) {
+	if (element.target.className === "delClass"){
+		element.target.parentElement.remove();
+	}
+}
 
 function toggleAfterClick(e) {
     if (e.target.tagName === "LI") {
@@ -23,8 +30,8 @@ function createListElement() {
 	li.classList.add("taskClass");
 	li.appendChild(document.createTextNode(input.value));
 	input.value = "";
-	delButton.classList.add("delClass");
 	delButton.innerHTML="Delete";
+    delButton.classList.add("delClass")
 }
 
 function addListAfterClick(){
@@ -38,8 +45,11 @@ function addListAfterKeypress(event) {
         createListElement();
      }
 }
+
 button.addEventListener("click", addListAfterClick)
 
 ul.addEventListener("click", toggleAfterClick)
+
+ul.addEventListener("click", deleteListElement)
 
 input.addEventListener("keypress", addListAfterKeypress)
